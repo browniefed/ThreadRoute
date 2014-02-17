@@ -23,7 +23,7 @@ Template.map.rendered = function() {
 	            _(directionRoute).each(function(line) {
 	            	multiPolyLineStore.push(decodeLine(line));
 	            });
-	            tempPolyline = L.multiPolyline(multiPolyLineStore, {color: 'red', className: 'route-' + key + '-' + direction});
+	            tempPolyline = L.multiPolyline(multiPolyLineStore, {color: '#2666e9', opacity: .3, className: 'route-' + key + '-' + direction});
 	            tempPolyline.addTo(map);
 				groupedPolylines[key][direction].push(tempPolyline);
 
