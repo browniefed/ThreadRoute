@@ -24,6 +24,15 @@ Trimet.getVehiclePositions = function(cb) {
 	})
 }
 
-Trimet.urlBuilder = function(path) {
-	return Trimet.urls[path] + '/appid/' + config.appid + '/json/true';
+Trimet.urlBuilder = function(path, string) {
+	return Trimet.urls[path] + '/appid/' + config.appid + '/json/true' + '/' + (string || '');
+}
+
+Trimet.getAllStops = function(cb) {
+	HTTP.get(Trimet.urlBuilder('routes', 'dir/true/stops/true'), function(err, data) {
+		if (err) {
+			return;
+		}
+		cb(data);
+	});
 }
